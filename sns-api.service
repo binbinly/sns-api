@@ -1,0 +1,11 @@
+[Unit]
+Description=sns-api
+After=network.target
+[Service]
+Type=simple
+User=www
+Group=www
+ExecStart=/www/goroot/sns-api-go/sns-api
+Restart=on-failure
+[Install]
+WantedBy=multi-user.target

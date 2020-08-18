@@ -1,0 +1,5 @@
+time="2020-07-04 18:03:07" level=error msg="DB ERROR: /Users/bin/go/src/sns-api/dal/db/post.go sns-api/dal/db.PostList 86 | msg:Error 1051: Unknown table 'post1'" func=sns-api/dal/db.dbError file="/Users/bin/go/src/sns-api/dal/db/mysql.go:139"
+time="2020-08-12 11:18:27" level=error msg="token check err:unexpected end of JSON input" func=sns-api/ws.ServeWs file="/Users/bin/go/src/sns-api/ws/conn.go:151"
+time="2020-08-18 11:11:01" level=error filename=cat.go line=16 message="Table 'dj.cat' doesn't exist" name=sns trace=2020081811110131831183
+time="2020-08-18 11:17:50" level=error filename=auth.go line=52 message="record not found" name=sns trace=2020081811175079575206
+time="2020-08-18 11:30:23" level=error filename=auth.go line=52 message="record not found" name=sns trace=2020081811302327420022

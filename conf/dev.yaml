@@ -1,0 +1,31 @@
+api:
+  app_name: sns
+  port: 9010
+  run_mode: debug
+  host: http://127.0.0.1:9010/
+ws:
+  port: 9015
+mysql:
+  host: 192.168.1.200:3306
+  user: root
+  pwd: 123456
+  db: bin-sns
+  prefix:
+  idle_conn: 2
+  max_conn: 20
+redis:
+  host: 192.168.1.200:6379
+  db: 0
+  auth:
+  pool_size: 5
+  min_conn: 1
+log:
+  level: 1
+  dir: logs
+  console: true
+sentry:
+  enable: true
+  dsn: http://07e6e93cd5f046c8b36b96c5947ab899@159.138.145.44:9000/2
+slack:
+  enable: true
+  hook_url: https://hooks.slack.com/services/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
