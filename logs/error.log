@@ -3,3 +3,8 @@ time="2020-08-12 11:18:27" level=error msg="token check err:unexpected end of JS
 time="2020-08-18 11:11:01" level=error filename=cat.go line=16 message="Table 'dj.cat' doesn't exist" name=sns trace=2020081811110131831183
 time="2020-08-18 11:17:50" level=error filename=auth.go line=52 message="record not found" name=sns trace=2020081811175079575206
 time="2020-08-18 11:30:23" level=error filename=auth.go line=52 message="record not found" name=sns trace=2020081811302327420022
+time="2020-08-19 11:20:40" level=error filename=post.go line=53 message="You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1" name=sns trace=2020081911204049646441
+time="2020-08-19 11:22:01" level=error filename=post.go line=54 message="You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1" name=sns trace=2020081911220197550545
+time="2020-08-19 11:22:48" level=error filename=post.go line=54 message="You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1" name=sns trace=2020081911224817302836
+time="2020-08-19 11:25:07" level=error filename=post.go line=57 message="You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1" name=sns trace=2020081911250758219356
+time="2020-08-19 15:51:40" level=error filename=feedback.go line=15 message="Table 'bin-sns.feed_back' doesn't exist" name=sns trace=2020081915514094018287

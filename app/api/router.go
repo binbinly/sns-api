@@ -111,6 +111,9 @@ func authCheck(api *gin.RouterGroup) {
 		apiUser.GET("/fens", user.FensList)
 		apiUser.GET("/count", user.Count)
 		apiUser.POST("/bind_phone", user.BindPhone)
+		apiUser.POST("/add_black", user.AddBlack)
+		apiUser.POST("/remove_black", user.RemoveBlack)
+		apiUser.POST("/feedback", user.Feedback)
 	}
 
 	upload := api.Group("/upload")

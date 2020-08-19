@@ -63,10 +63,6 @@ func FriendList(c *gin.Context) {
 		r.ResponseError(common.ErrorDBError)
 		return
 	}
-	if len(list) == 0 {
-		r.ResponseError(common.ErrorDataNotFound)
-		return
-	}
 	r.ResponseSuccess(list)
 }
 
@@ -79,10 +75,6 @@ func FollowList(c *gin.Context) {
 		r.ResponseError(common.ErrorDBError)
 		return
 	}
-	if len(list) == 0 {
-		r.ResponseError(common.ErrorDataNotFound)
-		return
-	}
 	r.ResponseSuccess(list)
 }
 
@@ -93,10 +85,6 @@ func FensList(c *gin.Context) {
 	if err != nil {
 		logger.Error(err)
 		r.ResponseError(common.ErrorDBError)
-		return
-	}
-	if len(list) == 0 {
-		r.ResponseError(common.ErrorDataNotFound)
 		return
 	}
 	r.ResponseSuccess(list)

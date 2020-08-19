@@ -1,8 +1,8 @@
 package models
 
-type Feedback struct {
+type UserBlack struct {
 	ModelCreate
 
 	UserId  int
-	Content string
+	BlackId int
 }

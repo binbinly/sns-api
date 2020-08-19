@@ -63,10 +63,6 @@ func TopicDetail(c *gin.Context)  {
 		r.ResponseError(common.ErrorDBError)
 		return
 	}
-	if len(list) == 0 {
-		r.ResponseError(common.ErrorDataNotFound)
-		return
-	}
 
 	r.ResponseSuccess(proto.TopicDetailRsp{
 		TopicRsp:  proto.TopicRsp{

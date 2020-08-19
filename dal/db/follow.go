@@ -128,13 +128,13 @@ func FensList(userId int) (user []models.FollowUserInfo, err error) {
 }
 
 func followJoinUser(db *gorm.DB) *gorm.DB {
-	return db.Table(models.TableFollow).Select("`user`.username, `user`.nickname, `user`.avatar, `user`.id, p.gender, p.hometown, p.birthday").
+	return db.Table(models.TableFollow).Select("`user`.username, `user`.nickname, `user`.avatar, `user`.id as user_id, p.gender, p.hometown, p.birthday").
 		Joins("left join `user` on user_follow.user_id = `user`.id").
 		Joins("left join user_profile as p on `user`.id = p.user_id")
 }
 
 func fensJoinUser(db *gorm.DB) *gorm.DB {
-	return db.Table(models.TableFollow).Select("`user`.username, `user`.nickname, `user`.avatar, `user`.id, p.gender, p.hometown, p.birthday").
+	return db.Table(models.TableFollow).Select("`user`.username, `user`.nickname, `user`.avatar, `user`.id as user_id, p.gender, p.hometown, p.birthday").
 		Joins("left join `user` on user_follow.follow_id = `user`.id").
 		Joins("left join user_profile as p on `user`.id = p.user_id")
 }

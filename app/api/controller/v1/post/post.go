@@ -80,10 +80,6 @@ func MyList(c *gin.Context) {
 		r.ResponseError(common.ErrorDBError)
 		return
 	}
-	if len(list) == 0 {
-		r.ResponseError(common.ErrorDataNotFound)
-		return
-	}
 	r.ResponseSuccess(logic.FormatPostList(userId, list))
 }
 
@@ -95,10 +91,6 @@ func FollowList(c *gin.Context) {
 	if err != nil {
 		logger.Error(err)
 		r.ResponseError(common.ErrorDBError)
-		return
-	}
-	if len(list) == 0 {
-		r.ResponseError(common.ErrorDataNotFound)
 		return
 	}
 	r.ResponseSuccess(logic.FormatPostList(userId, list))
@@ -119,10 +111,6 @@ func ListByTopic(c *gin.Context) {
 	if err != nil {
 		logger.Error(err)
 		r.ResponseError(common.ErrorDBError)
-		return
-	}
-	if len(list) == 0 {
-		r.ResponseError(common.ErrorDataNotFound)
 		return
 	}
 	r.ResponseSuccess(logic.FormatPostList(userId, list))

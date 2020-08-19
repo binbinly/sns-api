@@ -153,3 +153,20 @@ func BindPhone(c *gin.Context)  {
 	}
 	r.ResponseSuccessNil()
 }
+
+//意见反馈
+func Feedback(c *gin.Context)  {
+	r := controller.NewResponse(c)
+	var form proto.FeedbackReq
+	isValid := v1.BindJsonValid(c, &form)
+	if !isValid {
+		r.ResponseError(common.ErrorRequestParams)
+		return
+	}
+	is := db.AddFeedback(v1.GetUserId(c), form.Category + " : " + form.Content)
+	if is {
+		r.ResponseSuccessNil()
+	} else {
+		r.ResponseErrorNil()
+	}
+}

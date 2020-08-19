@@ -32,30 +32,26 @@ func CreatePost(userId, seeType, topicId, catId int, content, image string) bool
 		logger.Error(err)
 		return false
 	}
-	if image == "" {
-		tx.Rollback()
-		return false
-	}
-	imageList := strings.Split(image, ",")
-	if len(imageList) == 0 { //没有图片，直接返回成功
-		tx.Commit()
-		return true
-	}
-	//添加图片
-	sql := "INSERT INTO `post_rel_image` (`post_id`,`image_id`) VALUES "
-	// 循环data数组,组合sql语句
-	for key, value := range imageList {
-		if len(imageList)-1 == key { //最后一条数据 以分号结尾
-			sql += fmt.Sprintf("(%d,%s);", post.ID, value)
-		} else {
-			sql += fmt.Sprintf("(%d,%s),", post.ID, value)
+	image = strings.TrimSpace(image)
+	if image != "" {
+		imageList := strings.Split(image, ",")
+
+		//添加图片
+		sql := "INSERT INTO `post_rel_image` (`post_id`,`image_id`) VALUES "
+		// 循环data数组,组合sql语句
+		for key, value := range imageList {
+			if len(imageList)-1 == key { //最后一条数据 以分号结尾
+				sql += fmt.Sprintf("(%d,%s);", post.ID, value)
+			} else {
+				sql += fmt.Sprintf("(%d,%s),", post.ID, value)
+			}
 		}
-	}
-	err = tx.Exec(sql).Error
-	if err != nil {
-		tx.Rollback()
-		logger.Error(err)
-		return false
+		err = tx.Exec(sql).Error
+		if err != nil {
+			tx.Rollback()
+			logger.Error(err)
+			return false
+		}
 	}
 	// 话题动态+1
 	if topicId > 0 {

@@ -1,7 +1,7 @@
 package proto
 
 type VersionUpgradeReq struct {
-	Num      string `json:"num" binding:"required,v_num"`
+	Num string `json:"num" binding:"required,v_num"`
 }
 
 type SendCodeReq struct {
@@ -11,6 +11,11 @@ type SendCodeReq struct {
 type SearchReq struct {
 	T int    `json:"t" binding:"required"`
 	Q string `json:"q" binding:"required"`
+}
+
+type FeedbackReq struct {
+	Category string `json:"category" binding:"required"`
+	Content  string `json:"content" binding:"required"`
 }
 
 type PhoneCodeLoginReq struct {

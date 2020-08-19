@@ -43,7 +43,7 @@ type UserCountRsp struct {
 }
 
 type UserMyRsp struct {
-	Info *UC           `json:"info"`
+	Info *UC          `json:"info"`
 	Bg   []models.Ads `json:"bg"`
 }
 
@@ -57,6 +57,7 @@ type UC struct {
 
 type US struct {
 	IsFollow    bool             `json:"is_follow"`    //是否关注
+	IsBlack     bool             `json:"is_black"`     //是否加入黑名单
 	PostCount   int              `json:"post_count"`   //帖子数
 	FollowCount int              `json:"follow_count"` //关注数
 	FensCount   int              `json:"Fens_count"`   //粉丝数

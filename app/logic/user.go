@@ -23,6 +23,7 @@ func UserProfile(myId, userId int) *proto.US {
 	c.FollowCount = db.FollowCount(userId)
 	c.PostCount = db.PostTotal(userId)
 	c.IsFollow = db.IsFollow(myId, userId)
+	c.IsBlack = db.BlackExist(myId, userId)
 	info, err := db.UserInfo(userId)
 	if err != nil{
 		logger.Error(err)
