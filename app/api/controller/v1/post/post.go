@@ -9,6 +9,7 @@ import (
 	"sns-api/app/common"
 	"sns-api/app/logic"
 	"sns-api/dal/db"
+	"sns-api/tools"
 	"sns-api/tools/logger"
 )
 
@@ -29,7 +30,7 @@ func Create(c *gin.Context) {
 	//xss过滤
 	p := bluemonday.NewPolicy()
 	form.Content = p.Sanitize(form.Content)
-	is := db.CreatePost(v1.GetUserId(c), form.SeeType, form.TopicId, form.CatId, form.Content, form.Image)
+	is := db.CreatePost(v1.GetUserId(c), form.SeeType, form.TopicId, form.CatId, tools.Replace(form.Content), form.Image)
 	if is {
 		r.ResponseSuccessNil()
 	} else {

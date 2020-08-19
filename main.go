@@ -33,7 +33,7 @@ func init() {
 	}
 	redis.Setup()
 	err = logger.Setup(map[string]interface{}{
-		"slack_url":config.C.Slack.HookUrl,
+		"slack_url": config.C.Slack.HookUrl,
 	}, config.C.Api.AppName, config.C.Log.Dir, logger.LogLevel(config.C.Log.Level))
 	if err != nil {
 		fmt.Printf("log setup err:%v\n", err)
@@ -43,6 +43,10 @@ func init() {
 		Dsn: config.C.Sentry.Dsn,
 	}); err != nil {
 		logger.Panic("sentry init err:%v", err)
+	}
+	err = tools.LoadFilter()
+	if err != nil {
+		logger.Panic("filter init err:%v", err)
 	}
 }
 

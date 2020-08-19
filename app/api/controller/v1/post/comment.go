@@ -9,6 +9,7 @@ import (
 	"sns-api/app/common"
 	"sns-api/app/logic"
 	"sns-api/dal/db"
+	"sns-api/tools"
 	"sns-api/tools/logger"
 )
 
@@ -23,7 +24,7 @@ func CreateComment(c *gin.Context) {
 	}
 	//xss过滤
 	p := bluemonday.NewPolicy()
-	form.Content = p.Sanitize(form.Content)
+	form.Content = tools.Replace(p.Sanitize(form.Content))
 	is := db.CreateComment(v1.GetUserId(c), form)
 	if is {
 		r.ResponseSuccessNil()
